@@ -1,0 +1,8 @@
+<div>
+    <p-sidebar [(visible)]="sidebarVisible">
+        <div class="card flex justify-content-center">
+            <p-panelMenu [model]="items" [style]="{'width':'250px'}"></p-panelMenu>
+        </div>
+    </p-sidebar>
+    <p-button color="primary" (click)="sidebarVisible = true" ><img style="width: 35px;" src="../../../../assets/icones/png/icon_sidebar.png" alt=""></p-button>
+</div>

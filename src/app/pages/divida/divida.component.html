@@ -1,0 +1,40 @@
+
+<div style="width: 80%;float: right;margin-right: 35px;">
+    <div class="card">
+        <form [formGroup]="dividaForm" (ngSubmit)="cadastrar()">
+            <div class="p-fluid p-formgrid grid">
+                <div class="field col-12 md:col-4">
+                    <label>Nome da divida</label>
+                    <input formControlName="nome" pInputText id="nome" type="text" />
+                </div>
+                <div class="field col-12 md:col-4">
+                    <label>Responsavel</label>
+                    <p-dropdown [options]="responsaveis" formControlName="idResponsavel" name="id" value="id"  optionLabel='nome'
+                    placeholder="Selecione Responsavel da divida "optionValue="id"></p-dropdown>
+                </div>
+                <div class="field col-12 md:col-4">
+                    <label>Credor</label>
+                    <p-dropdown [options]="credores"  name="id" value="id" formControlName="idCredor" optionLabel='nome'
+                    placeholder="Selecione Credor da divida " optionValue="id"></p-dropdown>
+                </div>
+                <div class="field col-12 md:col-4">
+                    <label>Valor</label>
+                    <input formControlName="valor" pInputText id="valor" type="number"/>
+                </div>
+                <div class="field col-12 md:col-4">
+                    <label>Quantidade de parcelas</label>
+                    <input formControlName="parcela" pInputText id="parcela" type="number" />
+                </div>
+                <div class="field col-12 md:col-4">
+                    <label>Status</label>
+                    <p-dropdown [options]="STATUS" name="status" formControlName="status" optionLabel='status'
+                    placeholder="Selecione Status da divida " optionValue="status"></p-dropdown>
+                </div>
+            </div>
+            <div class="p-fluid p-formgrid grid" style="margin-top: 10px;">
+                <p-button [style]="{'width':'7rem'}" type="submit" label="Salvar" styleClass="p-button-raised p-button-text p-button-secondary"></p-button>
+                <p-button [style]="{'margin-left':'10px','width':'7rem'}" label="Cancelar" styleClass="p-button-raised p-button-text p-button-danger"></p-button>
+            </div>
+        </form>
+    </div>
+</div>

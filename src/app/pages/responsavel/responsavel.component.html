@@ -1,0 +1,16 @@
+<div style="width: 80%;float: right;margin-right: 35px;">
+    <div class="card">
+        <form [formGroup]="responsavelForm" (ngSubmit)="cadastrar()">
+            <div class="p-fluid p-formgrid grid">
+                <div class="field col-12 md:col-8">
+                    <label htmlFor="firstname2">Nome</label>
+                    <input formControlName="nome" pInputText id="firstname2" type="text" />
+                </div>
+            </div>
+            <div class="p-fluid p-formgrid grid" style="margin-top: 10px;">
+                <p-button [style]="{'width':'7rem'}" type="submit" label="Salvar" styleClass="p-button-raised p-button-text p-button-secondary"></p-button>
+                <p-button [style]="{'margin-left':'10px','width':'7rem'}" label="Cancelar" styleClass="p-button-raised p-button-text p-button-danger"></p-button>
+            </div>
+        </form>
+    </div>
+</div>

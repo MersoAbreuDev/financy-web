@@ -1,0 +1,73 @@
+
+<div class="card col-offset-2" style="width: 100%;display: flex;justify-content: center;">
+    <p-table #dt [value]="dividas" [rows]="10" [paginator]="true" 
+         [rows]="5" [showCurrentPageReport]="true"  [rowsPerPageOptions]="[5,10,20,30,50]"
+        currentPageReportTemplate="Showing {first} to {last} of {totalRecords} entries" [showCurrentPageReport]="true">
+    
+        <ng-template pTemplate="header">
+            <tr>  
+                <th  style="min-width:120px">Nome</th>
+                <th  style="min-width:120px">Data da compra</th>
+                <th  style="min-width:120px">Valor</th>
+                <th  style="min-width:80px">Quantidade parcelas</th>
+                <th  style="min-width:50px">Valor parcelas</th>
+                <th  style="min-width:120px">Status</th>
+                <th style="text-align: center;">Ações</th>
+            </tr>
+        </ng-template>
+        <ng-template pTemplate="body" let-dividas>
+            <tr>
+               
+                <td>{{dividas.nome}}</td>
+                <td>{{dividas.dataCompra | date : 'dd/MM/yyyy'}}</td>
+                <td> {{dividas.valor | currency : 'BRL'}}</td>
+                <td style="text-align: center;">{{dividas.parcela}}</td>
+                <td style="text-align: center;">{{dividas.valorParcelas | currency : 'BRL'}}</td>
+                <td style="text-align: center;">{{dividas.status}}</td>
+
+
+                <td style="text-align: center;">
+                    <button  pButton pRipple (click)="editar(dividas.id, dividas)" class="p-button-raised p-button-text p-button-secondary " style=" margin-right:10px;" ><img style="width:10px;">Editar</button>
+                    <button  pButton pRipple (click)="delete(dividas.id, dividas)" class="p-button-raised p-button-text p-button-warning" ><img style="width:10px;" >Excluir</button>
+                </td>
+            </tr>
+        </ng-template>
+        <ng-template pTemplate="summary">
+            <div class="flex align-items-center justify-content-between">
+                <!-- In total there are {{chamados ? chamados.length : 0 }} products. -->
+            </div>
+        </ng-template>
+    </p-table>
+</div>
+<p-dialog [(visible)]="dividaDialog" [style]="{width: '450px'}" header="Editar Cliente" [modal]="true" styleClass="p-fluid">
+    <ng-template pTemplate="content">
+       
+        <div class="field">
+            <label for="nome">Nome</label>
+            <input type="text" pInputText id="nome" [(ngModel)]="divida.nome" required autofocus />
+            <small class="p-error" *ngIf="submitted && !divida.nome">Categoria é necessário!</small>
+        </div>
+  
+    
+    </ng-template>
+    <ng-template pTemplate="footer">
+        <button pButton  label="Cancelar" icon="pi pi-times" (click)="hideDialog()" class="p-button-raised p-button-text p-button-danger"></button>
+        <button pButton  label="Salvar" icon="pi pi-check" (click)="salvar()"  class="p-button-raised p-button-text p-button-secondary"></button>
+    </ng-template>
+</p-dialog> 
+
+<p-dialog [(visible)]="dividaDeleteDialog" [style]="{width: '450px'}" header="Excluir Cliente" [modal]="true" styleClass="p-fluid">
+    <ng-template pTemplate="content">
+
+        <div class="field">
+            <label for="name">Deseja excluir o cliente selecionado?</label>
+            <input type="text" style="text-align: center;font-weight: bolder;color: black;" pInputText id="name" [(ngModel)]="divida.nome" autofocus disabled="true" />
+
+        </div>
+    </ng-template>
+
+    <ng-template pTemplate="footer">
+        <button pButton pRipple label="Cancelar" icon="pi pi-times" class="p-button-raised p-button-text p-button-danger" (click)="hideDialog()"></button>
+        <button pButton pRipple label="Deletar" icon="pi pi-check" (click)="deletar(divida.id)" class="p-button-raised p-button-text p-button-secondary"></button>
+    </ng-template>
+</p-dialog>
