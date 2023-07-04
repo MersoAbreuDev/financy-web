@@ -21,7 +21,7 @@
                 <td>{{dividas.nome}}</td>
                 <td>{{dividas.dataCompra | date : 'dd/MM/yyyy'}}</td>
                 <td> {{dividas.valor | currency : 'BRL'}}</td>
-                <td style="text-align: center;">{{dividas.parcela}}</td>
+                <td style="text-align: center;">{{dividas.parcela}}<button style="margin-left: 5px;padding: 12px;border-radius: 8px;border: none;" icon="pi pi-eye" (click)="editarParcela(dividas.id, parcela)">Ver</button></td>
                 <td style="text-align: center;">{{dividas.valorParcelas | currency : 'BRL'}}</td>
                 <td style="text-align: center;">{{dividas.status}}</td>
 
@@ -71,3 +71,38 @@
         <button pButton pRipple label="Deletar" icon="pi pi-check" (click)="deletar(divida.id)" class="p-button-raised p-button-text p-button-secondary"></button>
     </ng-template>
 </p-dialog>
+
+<p-dialog [(visible)]="parcelaDialog" [style]="{width: '65%'}" header="Editar Parcela" [modal]="true" styleClass="p-fluid">
+    
+<div class="card col-offset-2" >
+    <p-table #dt [value]="parcelas" [rows]="10" [paginator]="true"
+         [rows]="5" [showCurrentPageReport]="true"  [rowsPerPageOptions]="[5,10,20,30,50]"
+        currentPageReportTemplate="Showing {first} to {last} of {totalRecords} entries" [showCurrentPageReport]="true">
+    
+        <ng-template pTemplate="header">
+            <tr>  
+                <th  style="min-width:120px">Numero Parcela</th>
+                <th  style="min-width:120px">Valor Parcela</th>
+                <th  style="min-width:120px">Status</th>
+
+                <th style="text-align:center;">Ações</th>
+            </tr>
+        </ng-template>
+        <ng-template pTemplate="body" let-parcelas>
+            <tr>
+                <td>{{parcelas.id}}</td>
+                <td> {{parcelas.valorParcela | currency : 'BRL'}}</td>
+                <td style="text-align: center;">{{parcelas.status}}</td>
+                
+                <td><button pButton pRipple label="Pagar"  icon="pi pi-check" (click)="pagarParcela(parcelas.id)" class="p-button-raised p-button-text p-button-secondary"></button></td>
+            </tr>
+            
+        </ng-template>
+        <ng-template pTemplate="summary">
+            <div class="flex align-items-center justify-content-between">
+                <!-- In total there are {{chamados ? chamados.length : 0 }} products. -->
+            </div>
+        </ng-template>
+    </p-table>
+</div>
+</p-dialog> 

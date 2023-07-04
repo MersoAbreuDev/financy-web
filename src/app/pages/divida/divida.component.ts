@@ -8,6 +8,7 @@ import { IDivida } from 'src/app/interfaces/divida';
 import { IResponsavel } from 'src/app/interfaces/responsavel';
 import { CredorService } from 'src/app/services/credor/credor.service';
 import { DividaService } from 'src/app/services/divida/divida.service';
+import { ParcelaService } from 'src/app/services/parcela/parcela.service';
 import { ResponsavelService } from 'src/app/services/responsavel/responsavel.service';
 
 @Component({
@@ -59,7 +60,7 @@ export class DividaComponent {
     this.todosCredores();
     this.todosResponsaveis();
   }
-  
+
   todosCredores(){
     this.credorService.buscarTodos(this.requestOptions).subscribe(data => this.credores= data);
   }

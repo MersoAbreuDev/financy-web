@@ -3,7 +3,9 @@ import { Component } from '@angular/core';
 import { ActivatedRoute, Params } from '@angular/router';
 import { Observable } from 'rxjs';
 import { IDivida } from 'src/app/interfaces/divida';
+import { IParcela } from 'src/app/interfaces/parcela';
 import { DividaService } from 'src/app/services/divida/divida.service';
+import { ParcelaService } from 'src/app/services/parcela/parcela.service';
 
 @Component({
   selector: 'app-divida-consulta',
@@ -18,8 +20,13 @@ export class DividaConsultaComponent {
   submitted!: boolean;
   requestOptions:any;
   dividaSelecionada:any;
+  parcelas:any=[];
+  parcela!:IParcela;
+  parcelaDialog:boolean = false;
+  codigo:any;
   constructor(private dividaService: DividaService,
-              private activatedRoute :ActivatedRoute,){}
+              private activatedRoute :ActivatedRoute,
+              private parcelaService : ParcelaService){}
 
   ngOnInit(){
     let params = new HttpParams();
@@ -36,11 +43,31 @@ export class DividaConsultaComponent {
     this.dividaService.buscarTodos(this.requestOptions).subscribe((data:any)=>{
       this.dividas= data
     });
+
   }
+
+  visualizarParcelas(id:any){
+    this.parcelaService.buscarParcelaPorIdDivida(id).subscribe((data:any)=>{
+      this.parcelas= data 
+    });    
+  }
+
 
   editar( id:number, divida:IDivida,){
     this.dividaDialog = true;
     return this.divida = divida;
+  }
+
+  pagarParcela(id:any){
+    this.parcelaService.pagarParcelaPorid(id).subscribe(data=>console.log())
+    this.buscarTodos();
+  }
+
+
+  editarParcela( id:number, parcela:IParcela,){
+    this.visualizarParcelas(id);
+    this.parcelaDialog = true;
+    return this.parcela = parcela;
   }
 
   delete(id: number, divida: IDivida) {
@@ -61,7 +88,6 @@ export class DividaConsultaComponent {
   }
 
   salvar() {
-
     this.submitted = true;
     this.divida = this.editar(  this.divida.id, this.divida);
     if (this.divida.nome.trim()) {
@@ -79,6 +105,7 @@ export class DividaConsultaComponent {
 
   hideDialog() {
     this.dividaDialog = false;
+    this.parcelaDialog = false;
     this.dividaDeleteDialog= false;
     this.submitted = false;
   }
