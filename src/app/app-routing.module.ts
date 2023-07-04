@@ -18,6 +18,10 @@ const routes: Routes = [
   {
     path: 'dividas',
     loadChildren: () => import('./pages/divida/divida.module').then(m => m.DividaModule)
+  },
+  {
+    path: 'receitas',
+    loadChildren: () => import('./pages/receita/receita.module').then(m => m.ReceitaModule)
   }
 ];
 

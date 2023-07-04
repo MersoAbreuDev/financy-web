@@ -84,6 +84,26 @@ export class SidebarComponent {
                       }
                   ]
               },
+              {
+                label: 'Receitas',
+                icon: 'pi pi-fw pi-plus',
+                items: [
+                    {
+                        label: 'Cadastrar',
+                        icon: 'pi pi-fw pi-bookmark',
+                        command: () => {
+                         this.router.navigateByUrl("/receitas")
+                     }
+                    },
+                    {
+                        label: 'Consultar',
+                        icon: 'pi pi-fw pi-video',
+                        command: () => {
+                         this.router.navigateByUrl("/receitas/receita-consulta")
+                     }
+                    }
+                ]
+            }
          ]
       }
     ];
