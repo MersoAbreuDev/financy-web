@@ -10,9 +10,18 @@ import { MenuItem } from 'primeng/api';
 export class SidebarComponent {
   sidebarVisible: boolean = false;
   items!: MenuItem[];
- 
+  habilitaMenu!:boolean;
+  currentUrl!:string;
   constructor(private router: Router){}
+
   ngOnInit() {
+    this.currentUrl = this.router.url; // Atribui a URL atual a uma variável
+    console.log("Teste",this.router.url);
+    if(this.currentUrl == "/" || this.currentUrl == ""){
+      this.habilitaMenu = true;
+    }else{
+      this.habilitaMenu = true;
+    }
     this.items = [
         {
             label: 'Cadastros',

@@ -1,5 +1,5 @@
 <div>
-    <p-sidebar [(visible)]="sidebarVisible">
+    <p-sidebar  [hidden]="habilitaMenu" [(visible)]="sidebarVisible" >
         <div class="card flex justify-content-center">
             <p-panelMenu [model]="items" [style]="{'width':'250px'}"></p-panelMenu>
         </div>
