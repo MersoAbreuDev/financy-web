@@ -1,0 +1,50 @@
+[debug] [2023-07-20T00:56:02.363Z] ----------------------------------------------------------------------
+[debug] [2023-07-20T00:56:02.365Z] Command:       C:\Program Files\nodejs\node.exe C:\Program Files\nodejs\node_modules\firebase-tools\lib\bin\firebase.js init
+[debug] [2023-07-20T00:56:02.365Z] CLI Version:   12.4.5
+[debug] [2023-07-20T00:56:02.365Z] Platform:      win32
+[debug] [2023-07-20T00:56:02.365Z] Node Version:  v18.10.0
+[debug] [2023-07-20T00:56:02.366Z] Time:          Wed Jul 19 2023 21:56:02 GMT-0300 (Horário Padrão de Brasília)
+[debug] [2023-07-20T00:56:02.366Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2023-07-20T00:56:02.445Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2023-07-20T00:56:02.446Z] > authorizing via signed-in user (mersoabreu@gmail.com)
+[info] 
+     ######## #### ########  ######## ########     ###     ######  ########
+     ##        ##  ##     ## ##       ##     ##  ##   ##  ##       ##
+     ######    ##  ########  ######   ########  #########  ######  ######
+     ##        ##  ##    ##  ##       ##     ## ##     ##       ## ##
+     ##       #### ##     ## ######## ########  ##     ##  ######  ########
+
+You're about to initialize a Firebase project in this directory:
+
+  C:\Users\EmersonAbreu\Documents\ws-estudo\financy-front
+
+Before we get started, keep in mind:
+
+  * You are initializing within an existing Firebase project directory
+
+[debug] [2023-07-20T00:56:19.673Z] ----------------------------------------------------------------------
+[debug] [2023-07-20T00:56:19.675Z] Command:       C:\Program Files\nodejs\node.exe C:\Program Files\nodejs\node_modules\firebase-tools\lib\bin\firebase.js init hosting
+[debug] [2023-07-20T00:56:19.676Z] CLI Version:   12.4.5
+[debug] [2023-07-20T00:56:19.676Z] Platform:      win32
+[debug] [2023-07-20T00:56:19.676Z] Node Version:  v18.10.0
+[debug] [2023-07-20T00:56:19.677Z] Time:          Wed Jul 19 2023 21:56:19 GMT-0300 (Horário Padrão de Brasília)
+[debug] [2023-07-20T00:56:19.677Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2023-07-20T00:56:19.760Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2023-07-20T00:56:19.760Z] > authorizing via signed-in user (mersoabreu@gmail.com)
+[info] 
+     ######## #### ########  ######## ########     ###     ######  ########
+     ##        ##  ##     ## ##       ##     ##  ##   ##  ##       ##
+     ######    ##  ########  ######   ########  #########  ######  ######
+     ##        ##  ##    ##  ##       ##     ## ##     ##       ## ##
+     ##       #### ##     ## ######## ########  ##     ##  ######  ########
+
+You're about to initialize a Firebase project in this directory:
+
+  C:\Users\EmersonAbreu\Documents\ws-estudo\financy-front
+
+Before we get started, keep in mind:
+
+  * You are initializing within an existing Firebase project directory
+
