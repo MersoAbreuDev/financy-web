@@ -7,7 +7,6 @@ import { MessageService } from 'primeng/api';
 export class UtilsService {
   constructor(private messageService: MessageService) { }
 
-
   async showSuccess(message:string){
        await this.messageService.add({severity:'success', summary: 'Sucesso!', detail: message});
    }
