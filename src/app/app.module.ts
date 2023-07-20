@@ -9,6 +9,8 @@ import { MessageService } from 'primeng/api';
 import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 import { JwtInterceptorInterceptor } from './jwt-interceptor/jwt-interceptor.interceptor';
 import { CommonModule } from '@angular/common';
+import { initializeApp } from "firebase/app";
+import { getAnalytics } from "firebase/analytics";
 
 @NgModule({
   declarations: [
@@ -29,6 +31,7 @@ import { CommonModule } from '@angular/common';
       multi: true
     },
     MessageService],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
+  
 })
 export class AppModule { }
