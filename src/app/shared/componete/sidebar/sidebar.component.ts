@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { Router } from '@angular/router';
+import { NavigationEnd, Router } from '@angular/router';
 import { MenuItem } from 'primeng/api';
 
 @Component({
@@ -10,9 +10,21 @@ import { MenuItem } from 'primeng/api';
 export class SidebarComponent {
   sidebarVisible: boolean = false;
   items!: MenuItem[];
- 
-  constructor(private router: Router){}
+  isLoginPage!: boolean;
+  constructor(private router: Router) {
+    this.router.events.subscribe(event => {
+      if (event instanceof NavigationEnd) {
+        if(event.url == '/login'){
+            this.isLoginPage = false;
+        }else{
+            this.isLoginPage = true;
+        }
+    }
+    });
+  }
+
   ngOnInit() {
+
     this.items = [
         {
             label: 'Cadastros',
@@ -57,7 +69,27 @@ export class SidebarComponent {
                            }
                        }
                    ]
-               }
+               },
+               {
+                label: 'Usuario de sistema',
+                icon: 'pi pi-fw pi-plus',
+                items: [
+                    {
+                        label: 'Cadastrar',
+                        icon: 'pi pi-fw pi-bookmark',
+                        command: () => {
+                            this.router.navigateByUrl("/usuarios")
+                        }
+                    },
+                    {
+                        label: 'Consultar',
+                        icon: 'pi pi-fw pi-video',
+                        command: () => {
+                            this.router.navigateByUrl("/usuarios/usuarios-consulta")
+                        }
+                    }
+                ]
+            }
            ]
         },
         {

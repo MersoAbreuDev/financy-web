@@ -40,8 +40,11 @@ import { SplitterModule } from 'primeng/splitter';
 import { PanelModule } from 'primeng/panel';
 import { MenuModule } from 'primeng/menu';
 import { SidebarComponent } from './sidebar/sidebar.component';
-
-
+import { DividerModule } from 'primeng/divider';
+import { MessagesModule } from 'primeng/messages';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { CommonModule } from '@angular/common';
+import { BrowserModule } from '@angular/platform-browser';
 @NgModule({
   declarations: [
     SidebarComponent
@@ -49,6 +52,7 @@ import { SidebarComponent } from './sidebar/sidebar.component';
   ],
   imports: [
     SplitterModule,
+    MessagesModule,
     PanelModule,
     AutoCompleteModule,
     CalendarModule,
@@ -88,6 +92,11 @@ import { SidebarComponent } from './sidebar/sidebar.component';
     FieldsetModule,
     FileUploadModule,
     MenuModule,
+    DividerModule,
+    FormsModule,
+    ReactiveFormsModule,
+    CommonModule,
+
     
   ],
   exports:[
@@ -131,7 +140,11 @@ import { SidebarComponent } from './sidebar/sidebar.component';
     FieldsetModule,
     FileUploadModule,
     MenuModule,
-    SidebarComponent
+    SidebarComponent,
+    DividerModule,
+    MessagesModule,
+    FormsModule,
+    ReactiveFormsModule
   ]
 })
 export class ComponeteModule { }

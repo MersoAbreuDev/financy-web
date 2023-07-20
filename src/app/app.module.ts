@@ -5,6 +5,10 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { ComponeteModule } from './shared/componete/componete.module';
 import { provideNgxMask } from 'ngx-mask';
+import { MessageService } from 'primeng/api';
+import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
+import { JwtInterceptorInterceptor } from './jwt-interceptor/jwt-interceptor.interceptor';
+import { CommonModule } from '@angular/common';
 
 @NgModule({
   declarations: [
@@ -14,10 +18,17 @@ import { provideNgxMask } from 'ngx-mask';
     BrowserModule,
     AppRoutingModule,
     ComponeteModule,
+    CommonModule,
     BrowserAnimationsModule,
-  
+    HttpClientModule
   ],
-  providers: [],
+  providers: [
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: JwtInterceptorInterceptor,
+      multi: true
+    },
+    MessageService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

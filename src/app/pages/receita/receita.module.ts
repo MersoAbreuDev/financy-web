@@ -4,6 +4,7 @@ import { CommonModule } from '@angular/common';
 import { ReceitaRoutingModule } from './receita-routing.module';
 import { ReceitaComponent } from './receita.component';
 import { ReceitaConsultaComponent } from './receita-consulta/receita-consulta.component';
+import { ComponeteModule } from 'src/app/shared/componete/componete.module';
 
 
 @NgModule({
@@ -13,7 +14,8 @@ import { ReceitaConsultaComponent } from './receita-consulta/receita-consulta.co
   ],
   imports: [
     CommonModule,
-    ReceitaRoutingModule
+    ReceitaRoutingModule,
+    ComponeteModule
   ]
 })
 export class ReceitaModule { }

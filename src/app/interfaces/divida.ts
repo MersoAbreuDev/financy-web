@@ -8,6 +8,7 @@ export interface IDivida {
     valor: number,
     parcela: number,
     status: Status,
+    dataVencimento:string,
     idCredor: ICredor,
     idResponsavel: IResponsavel
 }

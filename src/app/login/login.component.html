@@ -1,0 +1,21 @@
+
+<div class="card" style="display: flex;justify-content: center;" >
+    <div class="grid" style="width: 60%;">
+        <div class="col-5 flex align-items-center justify-content-center">
+            <form [formGroup]="form" (ngSubmit)="login()">
+                <div class="p-fluid">
+                    <div class="field">
+                        <label for="email">E-mail</label>
+                        <input pInputText formControlName="email" id="email" type="text" />
+                    </div>
+                    <div class="field">
+                        <label for="senha">senha</label>
+                        <input pInputText formControlName="senha" id="senha" type="password" />
+                    </div>
+                    <p-button [style]="{'margin-top':'10px'}" type="submit" label="Login"></p-button>
+                </div>
+            </form>
+          
+        </div>
+    </div>
+</div>
