@@ -46,6 +46,13 @@ export class DividaConsultaComponent {
 
   }
 
+  imprimirDivida(id:any, data:any){
+    this.dividaService.imprimirRelatorio(id, data).subscribe((data:any)=>{
+      this.parcelas= data 
+    }); 
+  }
+
+
   visualizarParcelas(id:any){
     this.parcelaService.buscarParcelaPorIdDivida(id).subscribe((data:any)=>{
       this.parcelas= data 
@@ -59,10 +66,8 @@ export class DividaConsultaComponent {
   }
 
   pagarParcela(id:any){
-    this.parcelaService.pagarParcelaPorid(id).subscribe(data=>console.log())
-    this.buscarTodos();
+    this.parcelaService.pagarParcelaPorid(id).subscribe(data=>console.log());
   }
-
 
   editarParcela( id:number, parcela:IParcela,){
     this.visualizarParcelas(id);

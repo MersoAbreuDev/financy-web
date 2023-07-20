@@ -6,8 +6,10 @@
     
         <ng-template pTemplate="header">
             <tr>  
-                <th  style="min-width:120px">Nome</th>
+                <th  style="min-width:120px">Imprimir</th>
+                <th  style="min-width:120px">Credor</th>
                 <th  style="min-width:120px">Data da compra</th>
+                <th  style="min-width:120px">Data de vencimento</th>
                 <th  style="min-width:120px">Valor</th>
                 <th  style="min-width:80px">Quantidade parcelas</th>
                 <th  style="min-width:50px">Valor parcelas</th>
@@ -17,9 +19,10 @@
         </ng-template>
         <ng-template pTemplate="body" let-dividas>
             <tr>
-               
-                <td>{{dividas.nome}}</td>
+                <td><button pButton pRipple icon="pi pi-print" (click)="imprimirDivida(dividas.id, dividas)" class="p-button-raised p-button-text p-button-secondary"></button></td>
+                <td>{{dividas.credor.nome}}</td>
                 <td>{{dividas.dataCompra | date : 'dd/MM/yyyy'}}</td>
+                <td>{{dividas.dataVencimento | date : 'dd/MM/yyyy'}}</td>
                 <td> {{dividas.valor | currency : 'BRL'}}</td>
                 <td style="text-align: center;">{{dividas.parcela}}<button style="margin-left: 5px;padding: 12px;border-radius: 8px;border: none;" icon="pi pi-eye" (click)="editarParcela(dividas.id, parcela)">Ver</button></td>
                 <td style="text-align: center;">{{dividas.valorParcelas | currency : 'BRL'}}</td>
@@ -75,13 +78,15 @@
 <p-dialog [(visible)]="parcelaDialog" [style]="{width: '65%'}" header="Editar Parcela" [modal]="true" styleClass="p-fluid">
     
 <div class="card col-offset-2" >
-    <p-table #dt [value]="parcelas" [rows]="10" [paginator]="true"
+    <p-table #dt [value]="parcelas" [rows]="10" [paginator]="true" 
          [rows]="5" [showCurrentPageReport]="true"  [rowsPerPageOptions]="[5,10,20,30,50]"
         currentPageReportTemplate="Showing {first} to {last} of {totalRecords} entries" [showCurrentPageReport]="true">
     
         <ng-template pTemplate="header">
             <tr>  
+
                 <th  style="min-width:120px">Numero Parcela</th>
+                <th  style="min-width:120px">Data vencimento</th>
                 <th  style="min-width:120px">Valor Parcela</th>
                 <th  style="min-width:120px">Status</th>
 
@@ -90,7 +95,9 @@
         </ng-template>
         <ng-template pTemplate="body" let-parcelas>
             <tr>
-                <td>{{parcelas.id}}</td>
+                
+                <td>{{parcelas.codigoParcela}}</td>
+                <td>{{parcelas.dataVencimento | date: "dd/MM/yyyy"}}</td>
                 <td> {{parcelas.valorParcela | currency : 'BRL'}}</td>
                 <td style="text-align: center;">{{parcelas.status}}</td>
                 

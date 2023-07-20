@@ -1,0 +1,25 @@
+<div style="width: 80%;float: right;margin-right: 35px;">
+    <div class="card">
+        <form  [formGroup]="usuarioForm" (ngSubmit)="cadastrar()">
+            <div class="p-fluid p-formgrid grid">
+                <div class="field col-12 md:col-4">
+                    <label>E-mail</label>
+                    <input formControlName="email" pInputText id="email" type="text" />
+                </div>
+                <div class="field col-12 md:col-4">
+                    <label>Senha</label>
+                    <input formControlName="senha" pInputText id="senha" type="password" />
+                </div>
+                <div class="field col-12 md:col-4">
+                    <label>Perfil</label>
+                    <p-dropdown [options]="role"  name="role" value="nome" formControlName="role" optionLabel='nome'
+                    placeholder="Selecione o tipo de Perfil" optionValue="nome"></p-dropdown>
+                </div>
+            </div>
+            <div class="p-fluid p-formgrid grid" style="margin-top: 10px;">
+                <p-button [style]="{'width':'7rem'}" type="submit" label="Salvar" styleClass="p-button-raised p-button-text p-button-secondary"></p-button>
+                <p-button [style]="{'margin-left':'10px','width':'7rem'}" label="Cancelar" styleClass="p-button-raised p-button-text p-button-danger"></p-button>
+            </div>
+        </form>
+    </div>
+</div>

@@ -24,4 +24,6 @@ export class ParcelaService extends ApiService<any>{
       return data;
     }));
   }
+
+
 }

@@ -26,6 +26,14 @@
                     <input formControlName="parcela" pInputText id="parcela" type="number" />
                 </div>
                 <div class="field col-12 md:col-4">
+                    <label>Data Compra</label>
+                    <input formControlName="dataCompra" pInputText id="dataCompra" type="date"/>
+                </div>
+                <div class="field col-12 md:col-4">
+                    <label>Data Vencimento</label>
+                    <input formControlName="dataVencimento" pInputText id="valor" type="date"/>
+                </div>
+                <div class="field col-12 md:col-4">
                     <label>Status</label>
                     <p-dropdown [options]="STATUS" name="status" formControlName="status" optionLabel='status'
                     placeholder="Selecione Status da divida " optionValue="status"></p-dropdown>

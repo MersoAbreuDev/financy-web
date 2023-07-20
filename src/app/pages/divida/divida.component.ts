@@ -54,7 +54,8 @@ export class DividaComponent {
       status:['',[Validators.required]],
       idCredor:['',[Validators.required]],
       idResponsavel:['',[Validators.required]],
-     
+      dataVencimento:['',[Validators.required]],
+      dataCompra:['',[Validators.required]]
     })
 
     this.todosCredores();
@@ -80,16 +81,19 @@ export class DividaComponent {
     let status = this.getValueControl(this.dividaForm, 'status')
     let idCredor = this.getValueControl(this.dividaForm, 'idCredor')
     let idResponsavel = this.getValueControl(this.dividaForm, 'idResponsavel')
-
+    let dataVencimento = this.getValueControl(this.dividaForm, 'dataVencimento')
+    let dataCompra = this.getValueControl(this.dividaForm, 'dataCompra')
      const payload = {
         nome,
         valor,
         parcela,
         status,
         idCredor,
-        idResponsavel
+        idResponsavel,
+        dataVencimento,
+        dataCompra
       }
-      console.log("TEste ", payload)
+    
       this.dividaService.salvar(payload).subscribe((data:any)=>{
         data = payload;
       })
