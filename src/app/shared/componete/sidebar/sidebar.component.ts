@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { NavigationEnd, Router } from '@angular/router';
 import { MenuItem } from 'primeng/api';
+import { LocalStorageService } from 'src/app/services/local-storage/local-storage.service';
 
 @Component({
   selector: 'app-sidebar',
@@ -11,7 +12,8 @@ export class SidebarComponent {
   sidebarVisible: boolean = false;
   items!: MenuItem[];
   isLoginPage!: boolean;
-  constructor(private router: Router) {
+  constructor(private router: Router,
+              private locaStorage: LocalStorageService) {
     this.router.events.subscribe(event => {
       if (event instanceof NavigationEnd) {
         if(event.url == '/login'){
@@ -137,7 +139,17 @@ export class SidebarComponent {
                 ]
             }
          ]
-      }
+      },
+      {
+        label: 'Sair',
+        icon: 'pi-power-off',
+        command: () => {
+            localStorage.clear();
+            setTimeout(()=>{
+            this.router.navigate(['login']);
+            },1000)
+        }
+    }
     ];
 }
 }
